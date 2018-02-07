@@ -1,7 +1,15 @@
 import React, { Component } from 'react'
 import { Paper, RadioButtonGroup, RadioButton, RaisedButton } from 'material-ui'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import {blueGrey900} from 'material-ui/styles/colors'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
+
+const muiTheme = getMuiTheme({
+    palette: {
+		primary1Color: blueGrey900,
+    }
+})
 
 const loginStyle = {
 	width: '70%',
@@ -14,9 +22,8 @@ const InputStyle = {
 }
 
 const radioButton = {
-    marginBottom: 16
+	marginBottom: 16
 }
-
 
 class Start extends Component {
 	constructor(props) {
@@ -36,13 +43,13 @@ class Start extends Component {
 
 	render() {
 		return (
-			<MuiThemeProvider>
+			<MuiThemeProvider muiTheme={muiTheme}>
 				<Paper style={loginStyle} zDepth={2}>
 					<p>This survey has been designed to gather information about meal preferences based only on recipes' titles and photos of prepared plates. This data will be used for comparison with algorithms used for recommendation or calculating meals similarities. Survey consist of two steps:</p>
 					<p>1. Choose your diet preferences.</p>
 					<p>2. Rate presented meals from 1 star (less likely to eat) to 5 stars (most likely to eat).</p>
 					<br/>
-					<p>Thank you for your attention and i hope this survey will not be too much engaging and time consuming.</p>
+					<p>Thank you for your attention and I hope this survey will not be too much engaging and time consuming.</p>
 					<br/>
 					<RadioButtonGroup
 							name='Diet Type'

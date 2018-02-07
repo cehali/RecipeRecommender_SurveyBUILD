@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
-import { Card, CardTitle, CardMedia, CardActions, RefreshIndicator, RaisedButton } from 'material-ui'
+import { AppBar, Card, CardTitle, CardMedia, CardActions, RefreshIndicator, RaisedButton } from 'material-ui'
 import StarRatingComponent from 'react-star-rating-component'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { app } from '../base'
+import {blueGrey900} from 'material-ui/styles/colors'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
 
+const muiTheme = getMuiTheme({
+    palette: {
+        primary1Color: blueGrey900,
+    }
+})
 
 const buttonStyle = {
     width: '100%'
@@ -21,7 +28,7 @@ const arraysEqual = (arr1, arr2) => {
     return true;
 }
 
-const API = 'http://ec2-54-93-216-184.eu-central-1.compute.amazonaws.com:3000/'
+const API = 'https://reciperecommender-survey.ml:3000/'
 
 class Survey extends Component {
     constructor(props) {
@@ -64,7 +71,8 @@ class Survey extends Component {
 
     
     componentDidMount = () => {
-    	this.getItems(0);
+        console.log(this.state.nrStage)
+    	this.getItems(this.state.nrStage);
     }
     
     goToNextStage = () => {
@@ -75,8 +83,9 @@ class Survey extends Component {
                 rateStars: rateNextStage,
                 canSubmit: false,
                 loading: true
-            }));
-            this.getItems(this.state.nrStage+1)
+            }), () => {
+                this.getItems(this.state.nrStage)
+            })
         } else {
             let d = new Date();
             let now = d.getTime();
@@ -108,7 +117,7 @@ class Survey extends Component {
 	render() {
         if (this.state.loading === true) {
             return ( 
-			<MuiThemeProvider>
+			<MuiThemeProvider muiTheme={muiTheme}>
 				<div style={{ textAlign: 'center', position: 'absolute', top: '25%', left: '50%'}}>
 					<h3>Loading</h3>
 					<RefreshIndicator
@@ -123,8 +132,13 @@ class Survey extends Component {
             )
         } else {
             return (
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={muiTheme}>
                     <div>
+                    <AppBar
+                        title={dishTypesStages[this.state.nrStage]}
+                        showMenuIconButton={false}
+                        style={{textAlign: 'center'}}
+                    />
                     {this.state.recipes.map((tile, index) => (
                         <Card style={{width:'50%', display: 'inline-block', padding: '10px'}}>
                         <CardMedia
@@ -145,7 +159,6 @@ class Survey extends Component {
                     </Card>
                     ))}{this.state.canSubmit ? <RaisedButton label='NEXT' primary={true} onClick={this.goToNextStage} style={buttonStyle} disabled={false}/> 
                     : <RaisedButton label='NEXT' primary={true} onClick={this.goToNextStage} style={buttonStyle} disabled={true}/>}
-                    
                     </div>
                 </MuiThemeProvider>
             )
