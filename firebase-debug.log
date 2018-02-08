@@ -1,0 +1,35 @@
+[debug] [2018-02-08T15:10:32.726Z] ----------------------------------------------------------------------
+[debug] [2018-02-08T15:10:32.728Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2018-02-08T15:10:32.729Z] CLI Version:   3.17.4
+[debug] [2018-02-08T15:10:32.729Z] Platform:      linux
+[debug] [2018-02-08T15:10:32.729Z] Node Version:  v8.9.4
+[debug] [2018-02-08T15:10:32.729Z] Time:          Thu Feb 08 2018 16:10:32 GMT+0100 (CET)
+[debug] [2018-02-08T15:10:32.729Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-02-08T15:10:32.738Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-08T15:10:32.739Z] > authorizing via signed-in user
+[debug] [2018-02-08T15:10:32.740Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-02-08T15:10:32.741Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/hgeMgBysBEX-_MWkNxrqeqU0nWE00f4fv3w9-qv2A8U',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Feb 08 2018 16:10:32 GMT+0100 (CET)
+[debug] [2018-02-08T15:10:32.889Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T15:10:32.898Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/reciperecommender-survey  
+  
+ Thu Feb 08 2018 16:10:32 GMT+0100 (CET)
+[debug] [2018-02-08T15:10:33.776Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T15:10:33.778Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/reciperecommender-survey/tokens  
+  
+ Thu Feb 08 2018 16:10:33 GMT+0100 (CET)
+[debug] [2018-02-08T15:10:34.637Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'reciperecommender-survey'...
+[info] 
+[info] i  deploying hosting
+[info] i  hosting: preparing build directory for upload...
+[debug] [2018-02-08T15:10:36.015Z] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/reciperecommender-survey/uploads/-L4pxyEtZBm3jrUvRThJ?fileCount=9&message=  
+  
+ Thu Feb 08 2018 16:10:36 GMT+0100 (CET)

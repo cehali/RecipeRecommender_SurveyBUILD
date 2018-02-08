@@ -56,10 +56,8 @@ class Survey extends Component {
         if (dishTypesStages[ns].includes('/')) {
             let spliteddishTypesStages = dishTypesStages[ns].split('/')
             var QUERY = `${typeofDiet}/${spliteddishTypesStages[0]}/${spliteddishTypesStages[1]}`
-            console.log('wiekszeAPI')
         } else {
             var QUERY = `${typeofDiet}/${dishTypesStages[ns]}`
-            console.log('mniejszeAPI')
         }
         fetch(API + QUERY)
         .then(response => response.json())
@@ -79,7 +77,6 @@ class Survey extends Component {
 
     
     componentDidMount = () => {
-        console.log(this.state.nrStage)
     	this.getItems(this.state.nrStage);
     }
     

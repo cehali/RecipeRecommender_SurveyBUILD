@@ -2,7 +2,7 @@
 var doCache = true;
 
 // Name our cache
-var CACHE_NAME = 'reciperecommender-survey';
+var CACHE_NAME = 'dietary_preferences_survey';
 
 // Delete old caches that are not our current one!
 self.addEventListener("activate", event => {
