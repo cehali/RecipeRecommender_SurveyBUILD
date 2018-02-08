@@ -45,11 +45,9 @@ class Start extends Component {
 		return (
 			<MuiThemeProvider muiTheme={muiTheme}>
 				<Paper style={loginStyle} zDepth={2}>
-					<p>This survey has been designed to gather information about meal preferences based only on recipes' titles and photos of prepared plates. This data will be used for comparison with algorithms used for recommendation or calculating meals similarities. Survey consist of two steps:</p>
+					<p>Welcome to online survey on dietery preferences. The survey is part of research work on healthy dietary, habits and cooking. It is purely anonymous and should take around 2 min. It consists of 6 subsections with short recipe list that you are kindly ask to rate according to your preferences. If you liked it you can pass the survey to any of your colleagues.</p>
 					<p>1. Choose your diet preferences.</p>
 					<p>2. Rate presented meals from 1 star (less likely to eat) to 5 stars (most likely to eat).</p>
-					<br/>
-					<p>Thank you for your attention and I hope this survey will not be too much engaging and time consuming.</p>
 					<br/>
 					<RadioButtonGroup
 							name='Diet Type'

@@ -16,7 +16,8 @@ const buttonStyle = {
     width: '100%'
 }
 
-const dishTypesStages = ['Main Dishes', 'Salads']
+const dishTypesStages = ['Breakfast and Brunch', 'Appetizers/Lunch and Snacks', 'Soups', 'Main Dishes', 'Side Dishes/Salads', 'Desserts/Afternoon Tea']
+const titles = ['Breakfast', 'Appetizers', 'Soups', 'Main Dishes', 'Side Dishes', 'Desserts']
 
 const arraysEqual = (arr1, arr2) => {
     if (arr1.length !== arr2.length)
@@ -52,7 +53,14 @@ class Survey extends Component {
 
     getItems = (ns) => {
         let typeofDiet = this.state.dietType
-        let QUERY = `${typeofDiet}/${dishTypesStages[ns]}`      
+        if (dishTypesStages[ns].includes('/')) {
+            let spliteddishTypesStages = dishTypesStages[ns].split('/')
+            var QUERY = `${typeofDiet}/${spliteddishTypesStages[0]}/${spliteddishTypesStages[1]}`
+            console.log('wiekszeAPI')
+        } else {
+            var QUERY = `${typeofDiet}/${dishTypesStages[ns]}`
+            console.log('mniejszeAPI')
+        }
         fetch(API + QUERY)
         .then(response => response.json())
         .then(data => {
@@ -118,14 +126,14 @@ class Survey extends Component {
         if (this.state.loading === true) {
             return ( 
 			<MuiThemeProvider muiTheme={muiTheme}>
-				<div style={{ textAlign: 'center', position: 'absolute', top: '25%', left: '50%'}}>
-					<h3>Loading</h3>
+				<div style={{ position: 'relative' }}>
 					<RefreshIndicator
 						size={50}
 						status="loading"
-						left={0}
-						top={0}
-						style={{display: 'inline-block', position: 'relative'}}
+                        top={30}
+                        left={-25}
+                        status={'loading'}
+                        style={{marginLeft: '50%'}}
 					/>
 				</div>
 			</MuiThemeProvider>
@@ -135,7 +143,7 @@ class Survey extends Component {
                 <MuiThemeProvider muiTheme={muiTheme}>
                     <div>
                     <AppBar
-                        title={dishTypesStages[this.state.nrStage]}
+                        title={titles[this.state.nrStage]}
                         showMenuIconButton={false}
                         style={{textAlign: 'center'}}
                     />

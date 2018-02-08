@@ -15,7 +15,7 @@ class Header extends Component {
         return (
             <MuiThemeProvider muiTheme={muiTheme}>
                     <AppBar
-                        title='RecipeRecommender'
+                        title='Dietary preferences survey'
                         showMenuIconButton={false}
                     />
             </MuiThemeProvider>

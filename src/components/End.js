@@ -21,7 +21,10 @@ class Start extends Component {
 		return (
 			<MuiThemeProvider muiTheme={muiTheme}>
 				<Paper style={endStyle} zDepth={2}>
-					<h3>Thank you for your contribution</h3>					
+					<h3>Thank you for your contribution.</h3>
+					<br/>
+					<p>Now you can close browser or complete the survey once again by clicking <a href='https://goo.gl/D7Lejj'>HERE</a></p>
+					<p></p>					
 				</Paper>
 			</MuiThemeProvider>
 		)
