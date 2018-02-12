@@ -103,8 +103,17 @@ class Survey extends Component {
     }
 
     saveRates = (value, index, name) => {
-        let rate2Save = {_key: name, rating: value}
-        this.state.ratings.push(rate2Save)
+        let objIndex = this.state.ratings.findIndex((obj => obj._key === name))
+        if (objIndex !== -1) {
+            let tempArray = this.state.ratings.slice()
+            tempArray[objIndex].rating = value
+            this.setState({
+                rating: tempArray
+            })
+        } else {
+            let rate2Save = {_key: name, rating: value}
+            this.state.ratings.push(rate2Save)
+        }
         let rate = this.state.rateStars.slice()
         rate[index] = value
         this.setState({
@@ -126,7 +135,6 @@ class Survey extends Component {
 				<div style={{ position: 'relative' }}>
 					<RefreshIndicator
 						size={50}
-						status="loading"
                         top={30}
                         left={-25}
                         status={'loading'}
